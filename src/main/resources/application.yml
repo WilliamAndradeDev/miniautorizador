@@ -5,6 +5,7 @@ spring:
     password:
     driverClassName: com.mysql.cj.jdbc.Driver
   jpa:
+    hibernate.ddl-auto: update
     show-sql: true
     properties:
       hibernate.format_sql: true
