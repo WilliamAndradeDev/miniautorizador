@@ -27,7 +27,7 @@ public class CreateCardController {
             @Valid @RequestBody final CreateCardRequest createCardRequest,
             final UriComponentsBuilder uriBuilder
     ) {
-        var createdCard = createCardUseCase.execute(createCardRequest.getPassword(), createCardRequest.getNumber());
+        var createdCard = createCardUseCase.execute(createCardRequest.password(), createCardRequest.number());
         var uri = uriBuilder.path(CardApi.URL_V1+"/{number}").buildAndExpand(createdCard.getNumber()).toUri();
         return ResponseEntity.created(uri).body(new CreateCardResponse(createdCard));
     }

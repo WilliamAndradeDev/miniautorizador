@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -15,12 +16,9 @@ import java.math.BigDecimal;
 public class CardModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @Column(nullable = false,length = 16,unique = true)
+    private UUID id;
     private String number;
-    @Column(nullable = false,length = 25)
     private String password;
-    @Column(nullable = false)
     private BigDecimal balance;
 
     public CardModel(CardEntity cardEntity) {

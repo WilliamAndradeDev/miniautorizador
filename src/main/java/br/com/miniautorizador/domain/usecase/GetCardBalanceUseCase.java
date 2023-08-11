@@ -19,7 +19,7 @@ public class GetCardBalanceUseCase {
 
     public BigDecimal execute(final String cardNumber) {
         var card = cardDataProvider.getCardBy(cardNumber).orElseThrow(() -> {
-            log.error("m=execute, stage=error, msg=Cartão não encontrado!");
+            log.error("m=execute, stage=error, msg=O Cartão com o número {} não encontrado!",cardNumber);
             return new CardNotFoundException();
         });
         return card.getBalance();
